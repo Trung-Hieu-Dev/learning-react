@@ -10,9 +10,13 @@ function App() {
     {id: 3, title: 'Item 3', amount: 13, date: new Date(2022, 15, 12)},
   ];
 
+  const saveExpense = (expenseData) => {
+    console.log(expenseData);
+  }
+
   return (
     <div style={{ 'padding': 20 }}>
-      <NewExpense /> <br/>
+      <NewExpense onSaveExpenseHandler={saveExpense} /> <br/>
       <Expense expenses={expenses} />
     </div>
   );

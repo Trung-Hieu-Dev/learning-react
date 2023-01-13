@@ -1,10 +1,10 @@
 import ExpenseForm from "./ExpenseForm";
 
-function NewExpense() {
+function NewExpense(props) {
 
     //get data from child (ExpenseForm)
     const saveExpenseDataHandler = (expenseData) => {
-        console.log(expenseData);
+        props.onSaveExpenseHandler(expenseData);
     }
 
     return (
