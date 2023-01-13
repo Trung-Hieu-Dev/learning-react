@@ -8,7 +8,16 @@ function Expense(props) {
   //     );
   //   });
 
-  var expenseList = props.expenses.map((item, index) => (
+  //   var expenseList = props.expenses.map((item, index) => (
+  //     <ExpenseItem
+  //       key={index}
+  //       title={item.title}
+  //       amount={item.amount}
+  //       date={item.date}
+  //     />
+  //   ));
+
+  return props.expenses.map((item, index) => (
     <ExpenseItem
       key={index}
       title={item.title}
@@ -16,8 +25,6 @@ function Expense(props) {
       date={item.date}
     />
   ));
-
-  return <div>{expenseList}</div>;
 }
 
 export default Expense;
