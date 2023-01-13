@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { Send } from '@mui/icons-material';
 import { Box, Container } from '@mui/system';
 
-function ExpenseForm() {
+function ExpenseForm(props) {
     const [inputDate, setInputDate] = useState(new Date());
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
@@ -56,7 +56,7 @@ function ExpenseForm() {
             amount: amount,
             date: inputDate,
         };
-        console.log(expenseData);
+        props.onSaveExpense(expenseData); //pass data to parent by parent's function
     }
 
   return (

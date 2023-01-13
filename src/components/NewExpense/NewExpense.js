@@ -1,9 +1,15 @@
 import ExpenseForm from "./ExpenseForm";
 
 function NewExpense() {
+
+    //get data from child (ExpenseForm)
+    const saveExpenseDataHandler = (expenseData) => {
+        console.log(expenseData);
+    }
+
     return (
         <div>
-            <ExpenseForm />
+            <ExpenseForm onSaveExpense={saveExpenseDataHandler} />
         </div>
     );
 }
