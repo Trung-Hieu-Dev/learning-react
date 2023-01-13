@@ -57,6 +57,10 @@ function ExpenseForm(props) {
             date: inputDate,
         };
         props.onSaveExpense(expenseData); //pass data to parent by parent's function
+
+        setTitle('');
+        setAmount('');
+        setInputDate(new Date());
     }
 
   return (
