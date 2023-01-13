@@ -1,5 +1,6 @@
 import './App.css';
 import Expense from './components/Expense/Expense';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   //data
@@ -10,7 +11,8 @@ function App() {
   ];
 
   return (
-    <div >
+    <div style={{ 'padding': 20 }}>
+      <NewExpense /> <br/>
       <Expense expenses={expenses} />
     </div>
   );
