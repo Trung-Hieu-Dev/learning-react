@@ -8,22 +8,45 @@ import { Send } from '@mui/icons-material';
 import { Box, Container } from '@mui/system';
 
 function ExpenseForm() {
-  const [inputDate, setInputDate] = useState(new Date());
-  const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState('');
+  //   const [inputDate, setInputDate] = useState(new Date());
+  //   const [title, setTitle] = useState('');
+  //   const [amount, setAmount] = useState('');
 
+  //   const titleChangeHandler = (event) => {
+  //     setTitle(event.target.value);
+  //   };
 
-  const titleChangeHandler = (event) => {
-    setTitle(event.target.value);
-  };
+  //   const amountChangeHandler = (event) => {
+  //     setAmount(event.target.value);
+  //   };
 
-  const amountChangeHandler = (event) => {
-    setAmount(event.target.value);
-  };
+  //   const dateChangeHandler = (date) => {
+  //     setInputDate(date);
+  //   };
 
-  const dateChangeHandler = (date) => {
-    setInputDate(date);
-  };
+  const [userInput, setUserInput] = useState({
+    title: '',
+    amount: '',
+    inputDate: new Date(),
+  });
+
+    const titleChangeHandler = (event) => {
+        setUserInput((previousState) => {
+            return {...previousState, title: event.target.value}
+        });
+    };
+
+    const amountChangeHandler = (event) => {
+        setUserInput((previousState) => {
+            return {...previousState, amount: event.target.value}
+        });
+    };
+
+    const dateChangeHandler = (date) => {
+        setUserInput((previousState) => {
+            return {...previousState, inputDate: date}
+        });
+    };
 
   return (
     <Container sx={{ width: '50%' }}>
@@ -34,7 +57,7 @@ function ExpenseForm() {
             label="Title"
             variant="outlined"
             onChange={titleChangeHandler}
-            value={title}
+            value={userInput.title}
           />
 
           <TextField
@@ -44,13 +67,13 @@ function ExpenseForm() {
             variant="outlined"
             inputProps={{ min: '0.01', step: '0.01' }}
             onChange={amountChangeHandler}
-            value={amount}
+            value={userInput.amount}
           />
 
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
               label="Date"
-              value={inputDate}
+              value={userInput.inputDate}
               minDate={new Date('2017-01-01')}
               maxDate={new Date('2023-12-31')}
               onChange={dateChangeHandler}
